@@ -63,4 +63,7 @@ int read_file (char *line, t_game *game);
 //render_assets
 void render_assets (t_game *game);
 
+//validations_map
+int validate_map(t_game *game);
+
 #endif

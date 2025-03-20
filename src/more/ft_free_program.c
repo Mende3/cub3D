@@ -1,4 +1,4 @@
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 void ft_free_program (t_game *game)
 {
@@ -12,4 +12,18 @@ void ft_free_program (t_game *game)
         }
         free (game);
     }
+}
+
+void free_map(char **map)
+{
+    int i = 0;
+
+    if (!map)
+        return;
+    while (map[i])
+    {
+        free(map[i]);
+        i++;
+    }
+    free(map);
 }

@@ -19,3 +19,34 @@ int extension_checker (const char *arg, const char *ext)
 		return (FALSE);
 	return (ft_strcmp((char *)(dot + 1), (char *)ext) == 0);
 }
+
+void print_map(char **map)
+{
+    int i = 0;
+    while (map[i])
+    {
+        printf("%s", map[i]);
+        i++;
+    }
+    printf("\n");
+}
+
+int	colmn_len(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+int	lines_len(char **mat)
+{
+	int	i;
+
+	i = 0;
+	while (mat[i])
+		i++;
+	return (i);
+}

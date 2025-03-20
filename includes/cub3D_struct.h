@@ -11,6 +11,8 @@ typedef struct s_game
     char    **map;
     int     map_width;
     int     map_heigth;
+    int     player_x;
+    int     player_y;
 } t_game;
 
 typedef struct s_assets
