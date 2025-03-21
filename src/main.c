@@ -1,5 +1,11 @@
 #include "../includes/cub3D.h"
 
+
+void ini_struct_vars (t_game *game)
+{
+    ft_bzero (game, sizeof(t_game));
+}
+
 int main(int ac, char **av)
 {
     t_game *game;
@@ -14,6 +20,7 @@ int main(int ac, char **av)
         extension = "cub";
         if (extension_checker(av[1], extension))
         {
+            ini_struct_vars (game);
             if (ft_open_file(av[1], game))
             {
                 if (validate_map(game))

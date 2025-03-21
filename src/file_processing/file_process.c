@@ -9,7 +9,6 @@ int ft_open_file (char *path, t_game *game)
     if (fd < 0)
         return FALSE;
     game->map_heigth = 0;
-    game->map = NULL;
     while (1)
     {
         line = get_next_line (fd);

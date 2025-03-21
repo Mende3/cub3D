@@ -3,7 +3,7 @@
 int key_listiner (int keycode, t_game *game)
 {
     if (ft_close_esc (keycode))
-        ft_exit_program (EXIT ,NULL ,game);
+        ft_exit_program (EXIT , "other", game);
     return 0;
 }
 

@@ -45,8 +45,8 @@ $(NAME): $(OBJ) $(LIBFT) $(MLX)
 
 clean:
 	@echo "$(RED)Limpando objetos...$(RESET)"
+	make clean -C minilibx-linux
 	@$(MAKE) -C $(LIBFT_DIR) clean
-	@$(MAKE) -C $(MLX_DIR) clean
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean

@@ -31,9 +31,13 @@
 
 //Messages
 # define EXIT RED "Feichando o programa.\n" RESET
-# define NO_ARG CYAN "Passe o dir de um mapa.\n" RESET
-# define NO_EXT CYAN "extensao nao identificada.\n" RESET
-# define NO_FILE CYAN "Arquivo não existente.\n" RESET
+# define NO_ARG CYAN "Error\nPasse o dir de um mapa.\n" RESET
+# define NO_EXT CYAN "Error\nextensao não identificada.\n" RESET
+# define NO_FILE CYAN "Error\nArquivo não existente.\n" RESET
+# define INVALID_MAP RED "Mapa inválido.\n" RESET
+# define EMPTY_MAP CYAN "Error\nMapa inválido ou vasio.\n" RESET
+# define NOT_FOUND CYAN "Error\nO mapa deve ter um indicador de jogador! Encontrado:" RESET
+# define PLAYER_NOT_FOUND CYAN "Error\nJogar não encontrado no mapa\n" RESET
 
 //chekc_utils.c
 int extension_checker (const char *arg, const char *ext);

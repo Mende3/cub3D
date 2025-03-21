@@ -9,6 +9,6 @@ int ft_close_esc (int keycode)
 
 int ft_close_x (t_game *game)
 {
-    ft_exit_program (EXIT, NULL, game);
+    ft_exit_program (EXIT, "other", game);
     return 0;
 }

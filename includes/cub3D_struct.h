@@ -4,6 +4,15 @@
 typedef struct s_game t_game;
 typedef struct s_assets t_assets;
 
+typedef struct s_player
+{    
+    int     count_n;
+    int     count_s;
+    int     count_e;
+    int     count_w;
+} t_palyer;
+
+
 typedef struct s_game
 {
     void    *mlx;
@@ -13,6 +22,7 @@ typedef struct s_game
     int     map_heigth;
     int     player_x;
     int     player_y;
+    t_palyer player; 
 } t_game;
 
 typedef struct s_assets

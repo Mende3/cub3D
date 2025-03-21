@@ -38,16 +38,16 @@ void find_player(t_game *game)
         }
         y++;
     }
-    ft_exit_program("Error: No player found on the map!\n", NULL, game); // Jogador não encontrado
+    ft_exit_program(PLAYER_NOT_FOUND, NULL, game);
 }
 
-static int validate_map_chars(t_game *game, int *count_n, int *count_s, int *count_e, int *count_w)
+static int validate_map_chars(t_game *game)
 {
     int x, y;
 
     if (!game->map || !game->map[0])
     {
-        printf("Error: Map is empty or invalid!\n");
+        printf("%s\n", EMPTY_MAP);
         return (0);
     }
 
@@ -59,13 +59,13 @@ static int validate_map_chars(t_game *game, int *count_n, int *count_s, int *cou
         {
             if (!is_valid_map_char(game->map[y][x]))
             {
-                printf("Error: Invalid char '%c' in map at (%d, %d)\n", game->map[y][x], x, y);
+                printf(CYAN"Error\nCaracter errado '%c' no mapa em (%d, %d)\n"RESET, game->map[y][x], x, y);
                 return (0);
             }
-            if (game->map[y][x] == 'N') (*count_n)++;
-            else if (game->map[y][x] == 'S') (*count_s)++;
-            else if (game->map[y][x] == 'E') (*count_e)++;
-            else if (game->map[y][x] == 'W') (*count_w)++;
+            if (game->map[y][x] == 'N') (game->player.count_n)++;
+            else if (game->map[y][x] == 'S') (game->player.count_s)++;
+            else if (game->map[y][x] == 'E') (game->player.count_e)++;
+            else if (game->map[y][x] == 'W') (game->player.count_w)++;
             x++;
         }
         y++;
@@ -74,17 +74,14 @@ static int validate_map_chars(t_game *game, int *count_n, int *count_s, int *cou
 }
 
 int validate_map(t_game *game)
-{
-    int count_n = 0, count_s = 0, count_e = 0, count_w = 0;
+{   
+    if (!validate_map_chars(game))
+        ft_exit_program(EXIT, INVALID_MAP, game);
 
-    if (!validate_map_chars(game, &count_n, &count_s, &count_e, &count_w))
-        ft_exit_program("Error: Invalid map!\n", NULL, game);
-
-    if ((count_n + count_s + count_e + count_w) != 1)
+    if (( game->player.count_n +  game->player.count_s +  game->player.count_e +  game->player.count_w) != 1)
     {
-        printf("Error: Map must have exactly one player! Found: N=%d, S=%d, E=%d, W=%d\n",
-               count_n, count_s, count_e, count_w);
-        ft_exit_program("Error: Invalid map!\n", NULL, game);
+        printf("%s N=%d, S=%d, E=%d, W=%d\n", NOT_FOUND,  game->player.count_n,  game->player.count_s,  game->player.count_e,  game->player.count_w);
+        ft_exit_program(EXIT, INVALID_MAP, game);
     }
 
     find_player(game); // O jogador foi localizado
