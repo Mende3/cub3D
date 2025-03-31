@@ -1,9 +1,15 @@
 #include "../includes/cub3D.h"
 
 
-void ini_struct_vars (t_game *game)
+void init_struct_vars (char *arg, t_game *game)
 {
     ft_bzero (game, sizeof(t_game));
+    game->file_name = arg;
+    
+    game->assets.asset_width = 64;
+    game->assets.asset_height = 64;
+    game->map_heigth = HIGHT_WIN;
+    game->map_width = WIDTH_WIN;
 }
 
 int main(int ac, char **av)
@@ -20,11 +26,13 @@ int main(int ac, char **av)
         extension = "cub";
         if (extension_checker(av[1], extension))
         {
-            ini_struct_vars (game);
-            if (ft_open_file(av[1], game))
+            init_struct_vars (av[1], game);
+            if (ft_open_file(game))
             {
-                if (validate_map(game))
-                    init_win(av[1], game);
+                if (validation_true(game))
+                    init_win (game);
+                else
+                    ft_free_program (game);
             }
             else
                 ft_exit_program(EXIT, NO_FILE, game);

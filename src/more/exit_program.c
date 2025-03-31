@@ -26,3 +26,11 @@ void ft_exit_program (char *str, char *str2, t_game *game)
     ft_putstr_fd (str, 2);
     exit (1);
 }
+
+void ft_exit_error_on_file (char *str1, char *str2, t_game *game)
+{
+    ft_putstr_fd (str1, 2);
+    ft_putstr_fd (str2, 2);
+    ft_free_program (game);
+    exit (1);
+}

@@ -1,11 +1,11 @@
 #include "../../includes/cub3D.h"
 
-int ft_open_file (char *path, t_game *game)
+int ft_open_file (t_game *game)
 {
     int fd;
     char *line;
 
-    fd = open (path, O_RDONLY);
+    fd = open (game->file_name, O_RDONLY);
     if (fd < 0)
         return FALSE;
     game->map_heigth = 0;

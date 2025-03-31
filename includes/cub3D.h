@@ -23,6 +23,8 @@
 # define WIDTH_WIN 1600
 # define HIGHT_WIN 800
 # define BUFFER_SIZE 42
+# define WIDTH_ASSET 64
+# define HEIGHT_ASSET 64
 
 //numbers
 # define FALSE 0
@@ -38,17 +40,19 @@
 # define EMPTY_MAP CYAN "Error\nMapa inválido ou vasio.\n" RESET
 # define NOT_FOUND CYAN "Error\nO mapa deve ter um indicador de jogador! Encontrado:" RESET
 # define PLAYER_NOT_FOUND CYAN "Error\nJogar não encontrado no mapa\n" RESET
+# define FAIL_IMG CYAN "Error\nFalha ao carregar imagem.\n" RESET
 
 //chekc_utils.c
 int extension_checker (const char *arg, const char *ext);
 int ft_strcmp (const char *s1,const char *s2);
 
 //exit_program.c
+void ft_exit_error_on_file (char *str1, char *str2, t_game *game);
 void ft_exit_program (char *str, char *str2, t_game *game);
 void exit_check_error (char *str);
 
 //init_win.c
-void init_win (char *arg, t_game *game);
+void init_win (t_game *game);
 int ft_close_x (t_game *game);
 
 //close_win
@@ -61,13 +65,25 @@ void    ft_free_program (t_game *game);
 char	*get_next_line(int fd);
 
 //file_process.c
-int ft_open_file (char *path, t_game *game);
+int ft_open_file (t_game *game);
 int read_file (char *line, t_game *game);
-
-//render_assets
-void render_assets (t_game *game);
 
 //validations_map
 int validate_map(t_game *game);
+int validation_true (t_game *game);
+
+//validation_map_utils1
+void get_path_file(char *ptr, t_game *game, char *key);
+int get_a_line (t_game *game);
+void view_cors(char *this_line, t_game *game);
+void view_colors(char *this_line, t_game *game);
+
+//validation_map_utils2
+void assign_asset_path(char *file, t_game *game, char *key);
+void assign_color(char *color, t_game *game, char *key);
+char *ft_strstr(const char *haystack, const char *needle);
+int check_cors_count (t_game *game);
+int find_file(char *asset_path);
+
 
 #endif
