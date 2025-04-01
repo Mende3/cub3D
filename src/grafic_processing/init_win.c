@@ -21,6 +21,7 @@ void init_win(t_game *game)
     game->assets.asset_no_img = mlx_xpm_file_to_image(game->mlx, game->assets.asset_no, &game->assets.asset_width, &game->assets.asset_height);
     if (!game->assets.asset_ea_img || !game->assets.asset_so_img || !game->assets.asset_we_img || !game->assets.asset_no_img)
     {
+        game->cn.free_asset_path = 1;
         ft_exit_program(FAIL_IMG, EXIT, game);
     }
     mlx_put_image_to_window(game->mlx, game->win, game->assets.asset_ea_img, 64, 64);

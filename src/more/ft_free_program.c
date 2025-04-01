@@ -15,13 +15,34 @@ void free_map(char **map)
     free(map);
 }
 
+void free_colors (t_game *game)
+{
+    if (game->colors.color_c)
+        free (game->colors.color_c);
+    if (game->colors.color_f)
+        free (game->colors.color_f);
+}
+
+void free_cors (t_game *game)
+{
+    if (game->assets.asset_ea)
+        free (game->assets.asset_ea);
+    if (game->assets.asset_no)
+        free (game->assets.asset_no);
+    if (game->assets.asset_so)
+        free (game->assets.asset_so);
+    if (game->assets.asset_we)
+        free (game->assets.asset_we);
+}
+
 void ft_free_program(t_game *game)
 {
     if (game)
     {
         if (game->map)
             free_map(game->map);
-
+        free_cors (game);
+        free_colors (game);
         if (game->mlx)
         {
             if (game->assets.asset_so_img)

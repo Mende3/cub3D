@@ -17,7 +17,6 @@ void get_path_file(char *ptr, t_game *game, char *key)
     if (file == NULL)
         ft_exit_error_on_file(EXIT, "", game);
     j = 0;
-    ft_strlcpy (file, ptr, j < len);
     while (j < len)
     {
         file[j] = ptr[i + j];
@@ -25,10 +24,10 @@ void get_path_file(char *ptr, t_game *game, char *key)
     }
     file[j] = '\0';
     assign_asset_path(file, game, key);
-    free(file);
+    free (file);
 }
 
-void line_view(char *this_line, t_game *game)
+void view_cors (char *this_line, t_game *game)
 {
     int i;
     char *keys_cors[] = {"NO", "SO", "WE", "EA"};
@@ -48,23 +47,3 @@ void line_view(char *this_line, t_game *game)
     }
 }
 
-
-int get_a_line(t_game *game)
-{
-    int fd;
-    char *line;
-
-    fd = open(game->file_name, O_RDONLY);
-    if (fd < 0)
-        ft_exit_program(EXIT, NO_FILE, game);
-
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        line_view(line, game);
-        free(line);
-    }
-    close(fd);
-    if (check_cors_count (game))
-        return FALSE;
-    return TRUE;
-}

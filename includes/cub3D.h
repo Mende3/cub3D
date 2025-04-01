@@ -83,6 +83,7 @@ void assign_asset_path(char *file, t_game *game, char *key);
 void assign_color(char *color, t_game *game, char *key);
 char *ft_strstr(const char *haystack, const char *needle);
 int check_cors_count (t_game *game);
+int check_colors_count (t_game *game);
 int find_file(char *asset_path);
 
 

@@ -3,8 +3,8 @@ EA ./assets/east.xpm
 WE ./assets/west.xpm
 SO ./assets/south.xpm
 
-C 225,30,0
 F 220,100,0
+C 225,30,0
 
 
 1111111111111111111111111
