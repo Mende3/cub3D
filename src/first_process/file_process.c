@@ -14,34 +14,17 @@ void free_temp_map (char **temp_map)
     free (temp_map);
 }
 
-int is_empty_after_identifier(char *line)
-{
-    int i = 0;
-    
-    if (line[0] == 'N' && line[1] == 'O' && ft_isspace(line[2]))
-        i = 3;
-    else if (line[0] == 'S' && line[1] == 'O' && ft_isspace(line[2]))
-        i = 3;
-    else if (line[0] == 'E' && line[1] == 'A' && ft_isspace(line[2]))
-        i = 3;
-    else if (line[0] == 'W' && line[1] == 'E' && ft_isspace(line[2]))
-        i = 3;
-    else if (line[0] == 'F' && ft_isspace(line[1]))
-        i = 2;
-    else if (line[0] == 'C' && ft_isspace(line[1]))
-        i = 2;
-    else
-        return 0;
-    while (line[i] && ft_isspace(line[i]))
-        i++;
-    return (line[i] == '\0');
-}
-
 void map_extend (char **temp_map, t_game *game)
 {
     int y;
 
     y = 0;
+    if (is_empty_line (&temp_map[0][0]))
+    {
+        free_temp_map (temp_map);
+        ft_putstr_fd (EMPTY_FST_LINE, 1);
+        ft_exit_error_on_file (EXIT, game);
+    }
     while (temp_map[y] != NULL)
     {
         if (is_char_native_file(temp_map[y])  && is_empty_after_identifier(temp_map[y]))
@@ -72,12 +55,6 @@ void fill_map (int count, t_game *game)
     }
     temp_map[y] = NULL;
     close (fd);
-    if (is_empty_line (&temp_map[0][0]))
-    {
-        free_temp_map (temp_map);
-        ft_putstr_fd (EMPTY_FST_LINE, 1);
-        ft_exit_error_on_file (EXIT, game);
-    }
     map_extend (temp_map, game);
     free_temp_map (temp_map);
 }
@@ -95,6 +72,11 @@ int ft_open_file (t_game *game)
     while ((line = get_next_line(fd)) != NULL)
     {
         count++;
+        if (is_other_char (line, game))
+        {
+            ft_putendl_fd (IS_OTHER_CHAR, 1);
+            ft_exit_error_on_file (EXIT, game);
+        }
         free (line);
     }
     fill_map (count, game);

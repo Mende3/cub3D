@@ -48,6 +48,7 @@
 # define ERROR_EXT_ASSET CYAN "Error\nErro na extenção de um ou mais arquivos asset.\n" RESET
 # define EMPTY_FST_LINE CYAN "Error\nA primeira linha do mapa está vaiza.\n" RESET
 # define MORE_NATIVE_CHAR CYAN "Error\nDemasiados identificadores nativos.\n" RESET
+# define IS_OTHER_CHAR CYAN "Error\nCaracteres estranhos identificados.\n" RESET
 
 //chekc_utils.c
 int extension_checker (const char *arg, const char *ext);
@@ -98,14 +99,17 @@ int ft_isspace(int c);
 //int check_colors_count (t_game *game);
 int check_count (t_game *game);
 
-void monitor_views (t_game *game);
+
 
 //validation_map3
+int is_map_line(char *line);
 int view_map(char *this_line, t_game *game, int *start_read);
 //validation_map_utils3
 int is_valid_map_char(char c);
 int is_empty_line(char *this_line);
 int is_char_valid (char *this_line, int i);
 int is_char_native_file (char *this_line);
+int is_empty_after_identifier(char *line);
 
+int is_other_char (char *this_line,  t_game *game);
 #endif
