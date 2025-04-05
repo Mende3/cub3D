@@ -41,37 +41,6 @@ void find_player(t_game *game)
     ft_exit_program(PLAYER_NOT_FOUND, NULL, game);
 }
 
-static int validate_map_chars(t_game *game)
-{
-    int x, y;
-
-    if (!game->map || !game->map[0])
-    {
-        printf("%s\n", EMPTY_MAP);
-        return (0);
-    }
-
-    y = 0;
-    while (game->map[y])
-    {
-        x = 0;
-        while (game->map[y][x])
-        {
-            if (!is_valid_map_char(game->map[y][x]))
-            {
-                printf(CYAN"Error\nCaracter errado '%c' no mapa em (%d, %d)\n"RESET, game->map[y][x], x, y);
-                return (0);
-            }
-            if (game->map[y][x] == 'N') (game->player.count_n)++;
-            else if (game->map[y][x] == 'S') (game->player.count_s)++;
-            else if (game->map[y][x] == 'E') (game->player.count_e)++;
-            else if (game->map[y][x] == 'W') (game->player.count_w)++;
-            x++;
-        }
-        y++;
-    }
-    return (1);
-}
 
 int validate_map(t_game *game)
 {   

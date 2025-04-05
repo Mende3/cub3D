@@ -1,31 +1,33 @@
 #include "../../includes/cub3D.h"
 
-int ft_open_file (t_game *game)
+void print_map(t_game *game)
 {
-    int fd;
-    char *line;
-
-    fd = open (game->file_name, O_RDONLY);
-    if (fd < 0)
-        return FALSE;
-    game->map_heigth = 0;
-    while (1)
+    int i;
+    int j;
+    
+    if (!game || !game->map)
+        return;
+    
+    i = 0;
+    while (i < game->map_heigth)
     {
-        line = get_next_line (fd);
-        if (!line)
-            break ;
-        if (!read_file(line, game))
-            break;
+        j = 0;
+        while (game->map[i][j] != '\0')
+        {
+            printf("%c", game->map[i][j]);
+            j++;
+        }
+        i++;
     }
-    close (fd);
-    return TRUE;
 }
+
 
 int read_file (char *line, t_game *game)
 {
     int i;
     char **temp;
 
+	game->map_heigth= 0;
     if (!line)
         return (FALSE);
     game->map_heigth++;
@@ -40,5 +42,6 @@ int read_file (char *line, t_game *game)
     if (game->map)
         free (game->map);
     game->map = temp;
+    print_map (game);
     return (TRUE);
 }

@@ -14,6 +14,7 @@ typedef struct s_controls_num
 
 typedef struct s_colors
 {
+    char *new_color;
     char *color_f;
     char *color_c;
     int     count_f;
@@ -31,6 +32,7 @@ typedef struct s_player
 
 typedef struct s_mark_cors
 {
+    char    *new_cors;
     int     no;
     int     so;
     int     we;

@@ -3,16 +3,13 @@
 
 void free_map(char **map)
 {
-    int i = 0;
-
-    if (!map)
-        return;
-    while (map[i])
-    {
-        free(map[i]);
-        i++;
-    }
     free(map);
+}
+
+void free_subject (char *subject)
+{
+    if (subject)
+        free (subject);
 }
 
 void free_colors (t_game *game)
@@ -32,7 +29,11 @@ void free_cors (t_game *game)
     if (game->assets.asset_so)
         free (game->assets.asset_so);
     if (game->assets.asset_we)
-        free (game->assets.asset_we);
+        free (game->assets.asset_we);    
+    game->assets.asset_no = NULL;
+    game->assets.asset_so = NULL;
+    game->assets.asset_we = NULL;
+    game->assets.asset_ea = NULL;
 }
 
 void ft_free_program(t_game *game)

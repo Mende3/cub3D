@@ -41,13 +41,20 @@
 # define NOT_FOUND CYAN "Error\nO mapa deve ter um indicador de jogador! Encontrado:" RESET
 # define PLAYER_NOT_FOUND CYAN "Error\nJogar não encontrado no mapa\n" RESET
 # define FAIL_IMG CYAN "Error\nFalha ao carregar imagem.\n" RESET
+# define T_BIGGER CYAN "Error\nHá assets ou cores repetidas.\n" RESET
+# define T_MINOR CYAN "Error\nHá menos assets ou cores.\n" RESET
+# define NO_VALID CYAN "Error\nArquivo não validado.\n" RESET
+# define NO_CHAR_MAP CYAN "Error\nMapa com caracteres inválidos.\n" RESET
+# define ERROR_EXT_ASSET CYAN "Error\nErro na extenção de um ou mais arquivos asset.\n" RESET
+# define EMPTY_FST_LINE CYAN "Error\nA primeira linha do mapa está vaiza.\n" RESET
+# define MORE_NATIVE_CHAR CYAN "Error\nDemasiados identificadores nativos.\n" RESET
 
 //chekc_utils.c
 int extension_checker (const char *arg, const char *ext);
 int ft_strcmp (const char *s1,const char *s2);
 
 //exit_program.c
-void ft_exit_error_on_file (char *str1, char *str2, t_game *game);
+void ft_exit_error_on_file (char *str1, t_game *game);
 void ft_exit_program (char *str, char *str2, t_game *game);
 void exit_check_error (char *str);
 
@@ -59,7 +66,10 @@ int ft_close_x (t_game *game);
 int ft_close_esc (int keycode);
 
 //ft_free_program
+void free_map (char **map);
 void    ft_free_program (t_game *game);
+void free_subject (char *fsubject);
+void free_cors (t_game *game);
 
 //ft_get_next_line
 char	*get_next_line(int fd);
@@ -73,18 +83,29 @@ int validate_map(t_game *game);
 int validation_true (t_game *game);
 
 //validation_map_utils1
-void get_path_file(char *ptr, t_game *game, char *key);
 int get_a_line (t_game *game);
 void view_cors(char *this_line, t_game *game);
 void view_colors(char *this_line, t_game *game);
 
 //validation_map_utils2
-void assign_asset_path(char *file, t_game *game, char *key);
+void assign_asset_path(char *this_line, char *file, t_game *game, char *key);
 void assign_color(char *color, t_game *game, char *key);
+//
 char *ft_strstr(const char *haystack, const char *needle);
-int check_cors_count (t_game *game);
-int check_colors_count (t_game *game);
-int find_file(char *asset_path);
+int ft_isspace(int c);
+//
+//int check_cors_count (t_game *game);
+//int check_colors_count (t_game *game);
+int check_count (t_game *game);
 
+void monitor_views (t_game *game);
+
+//validation_map3
+int view_map(char *this_line, t_game *game, int *start_read);
+//validation_map_utils3
+int is_valid_map_char(char c);
+int is_empty_line(char *this_line);
+int is_char_valid (char *this_line, int i);
+int is_char_native_file (char *this_line);
 
 #endif

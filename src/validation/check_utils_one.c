@@ -39,3 +39,9 @@ int extension_checker (const char *arg, const char *ext)
 		return (FALSE);
 	return (ft_strcmp((char *)(dot + 1), (char *)ext) == 0);
 }
+
+int ft_isspace(int c)
+{
+    return (c == ' '  || c == '\t' || c == '\n' ||
+            c == '\v' || c == '\f' || c == '\r');
+}

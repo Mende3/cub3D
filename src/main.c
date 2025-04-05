@@ -5,7 +5,6 @@ void init_struct_vars (char *arg, t_game *game)
 {
     ft_bzero (game, sizeof(t_game));
     game->file_name = arg;
-    
     game->assets.asset_width = 64;
     game->assets.asset_height = 64;
     game->map_heigth = HIGHT_WIN;
@@ -32,7 +31,7 @@ int main(int ac, char **av)
                 if (validation_true(game))
                     init_win (game);
                 else
-                    ft_free_program (game);
+                    ft_exit_error_on_file (EXIT, game);
             }
             else
                 ft_exit_program(EXIT, NO_FILE, game);

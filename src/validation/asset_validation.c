@@ -1,6 +1,6 @@
 #include "../../includes/cub3D.h"
 
-void get_path_file(char *ptr, t_game *game, char *key)
+void get_path_file(char *this_line, char *ptr, t_game *game, char *key)
 {
     char *file;
     int i;
@@ -15,7 +15,7 @@ void get_path_file(char *ptr, t_game *game, char *key)
         len++;
     file = malloc(sizeof(char) * (len + 1));
     if (file == NULL)
-        ft_exit_error_on_file(EXIT, "", game);
+        return ;
     j = 0;
     while (j < len)
     {
@@ -23,7 +23,7 @@ void get_path_file(char *ptr, t_game *game, char *key)
         j++;
     }
     file[j] = '\0';
-    assign_asset_path(file, game, key);
+    assign_asset_path(this_line, file, game, key);
     free (file);
 }
 
@@ -31,7 +31,7 @@ void view_cors (char *this_line, t_game *game)
 {
     int i;
     char *keys_cors[] = {"NO", "SO", "WE", "EA"};
-    int *counters[] = {&game->mark_cors.no, &game->mark_cors.so, &game->mark_cors.we, &game->mark_cors.ea};
+
 
     i = 0;
     while (i < 4)
@@ -40,8 +40,8 @@ void view_cors (char *this_line, t_game *game)
         if (ptr && (ptr[2] == ' ' || ptr[2] == '\t'))
         {
             ptr += 2;
-            get_path_file(ptr, game, keys_cors[i]);
-            (*counters[i])++;
+            get_path_file(this_line ,ptr, game, keys_cors[i]);
+            game->mark_cors.total_cors++;
         }
         i++;
     }
