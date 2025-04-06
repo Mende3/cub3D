@@ -1,6 +1,6 @@
 #include "../../includes/cub3D.h"
 
-void get_color (char *ptr, t_game *game, char *key)
+void get_color (char *this_line, char *ptr, t_game *game, char *key)
 {
     char *color;
     int i;
@@ -23,7 +23,7 @@ void get_color (char *ptr, t_game *game, char *key)
         j++;
     }
     color[j] = '\0';
-    assign_color (color, game, key);
+    assign_color (this_line, color, game, key);
     free (color);
 }
 
@@ -39,7 +39,7 @@ void view_colors (char *this_line, t_game *game)
         if (ptr && (ptr[1] == ' ' || ptr[1] == '\t'))
         {
             ptr += 1;
-            get_color (ptr, game, key_colors[i]);
+            get_color (this_line ,ptr, game, key_colors[i]);
             game->colors.total_colors++;
         }
         i++;

@@ -1,5 +1,19 @@
 #include "../../includes/cub3D.h"
 
+int prime_is_digit (char *str)
+{
+    int i;
+
+    i = 0;
+    while (str[i])
+    {
+        if (!ft_isdigit(str[i]))
+            return FALSE;
+        i++;
+    }
+    return TRUE;
+}
+
 int ft_strcmp (const char *s1,const char *s2)
 {
     int i;

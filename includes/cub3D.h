@@ -46,6 +46,7 @@
 # define NO_VALID CYAN "Error\nArquivo não validado.\n" RESET
 # define NO_CHAR_MAP CYAN "Error\nMapa com caracteres inválidos.\n" RESET
 # define ERROR_EXT_ASSET CYAN "Error\nErro na extenção de um ou mais arquivos asset.\n" RESET
+# define ERROR_RGB_COLOR CYAN "Error\nAs dua ou uma das core snão está no padrão RGB.\n" RESET
 # define EMPTY_FST_LINE CYAN "Error\nA primeira linha do mapa está vaiza.\n" RESET
 # define MORE_NATIVE_CHAR CYAN "Error\nDemasiados identificadores nativos.\n" RESET
 # define IS_OTHER_CHAR CYAN "Error\nCaracteres estranhos identificados.\n" RESET
@@ -90,12 +91,13 @@ void view_colors(char *this_line, t_game *game);
 
 //validation_map_utils2
 void assign_asset_path(char *this_line, char *file, t_game *game, char *key);
-void assign_color(char *color, t_game *game, char *key);
+void assign_color(char *this_line, char *color, t_game *game, char *key);
 //
 char *ft_strstr(const char *haystack, const char *needle);
 int ft_isspace(int c);
 //
 //int check_cors_count (t_game *game);
+int prime_is_digit (char *str);
 //int check_colors_count (t_game *game);
 int check_count (t_game *game);
 

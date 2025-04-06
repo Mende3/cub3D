@@ -2,7 +2,7 @@ NO ./assets/north.xpm
 EA ./assets/east.xpm
 C 225,30,0
 WE ./assets/west.xpm
-F 225,30,0
+F 225,30,1
 SO   ./assets/south.xpm
 
         1111111111111111111111111

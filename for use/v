@@ -1,0 +1,1 @@
+ gcc ../libft/ft_split.c ../libft/ft_substr.c ../libft/ft_strdup.c ../libft/ft_calloc.c ../libft/ft_strlcpy.c  ../libft/ft_strlen.c ../libft/ft_bzero.c  ../libft/ft_memset.c is_rgb.c -o program
