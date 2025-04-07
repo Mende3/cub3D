@@ -74,6 +74,7 @@ int ft_open_file (t_game *game)
         count++;
         if (is_other_char (line, game))
         {
+            free (line);
             ft_putendl_fd (IS_OTHER_CHAR, 1);
             ft_exit_error_on_file (EXIT, game);
         }

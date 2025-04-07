@@ -1,6 +1,5 @@
 #include "../../includes/cub3D.h"
 
-
 int is_other_char (char *this_line, t_game *game)
 {
     int i;

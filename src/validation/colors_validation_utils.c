@@ -5,30 +5,36 @@ int is_rgb_nbr (int nbr)
     return (nbr >= 0 && nbr <= 255);
 }
 
-int is_color_rgb (char *str)
+int is_color_rgb(char *str)
 {
-    int i;
+    int i = 0;
     int temp;
-    int count;
     char **rgb_colors;
-
-    rgb_colors = ft_split (str, 44);
-    count = 0;
-    while (rgb_colors[count] != NULL)
-        count++;
-    if (count != 3)
-        return FALSE;
-    i = 0;
-    while (rgb_colors[i])
-    {
-        if (!prime_is_digit (rgb_colors[i]))
-            return FALSE;
-        temp = ft_atoi (rgb_colors[i]);
-        if (!is_rgb_nbr(temp))
-            return FALSE;                
+    int result = TRUE;
+    
+    rgb_colors = ft_split(str, 44);
+    while (rgb_colors[i] != NULL)
         i++;
+    if (i != 3)
+        result = FALSE;
+    else
+    {
+        i = 0;
+        while (rgb_colors[i] && result)
+        {
+            if (!prime_is_digit(rgb_colors[i]))
+                result = FALSE;
+            else
+            {
+                temp = ft_atoi(rgb_colors[i]);
+                if (!is_rgb_nbr(temp))
+                    result = FALSE;
+            }
+            i++;
+        }
     }
-    return TRUE;
+    free_matrix(rgb_colors);
+    return result;
 }
 
 void assign_color (char *this_line, char *color, t_game *game, char *key)

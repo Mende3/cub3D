@@ -1,5 +1,27 @@
 #include "../../includes/cub3D.h"
 
+
+void print_map(t_game *game)
+{
+    int i;
+    int j;
+    
+    if (!game || !game->map)
+        return;
+    
+    i = 0;
+    while (i < game->map_heigth)
+    {
+        j = 0;
+        while (game->map[i][j] != '\0')
+        {
+            printf("%c", game->map[i][j]);
+            j++;
+        }
+        i++;
+    }
+}
+
 int get_a_line(t_game *game)
 {
     int fd;
@@ -21,18 +43,20 @@ int get_a_line(t_game *game)
             free (line);
             ft_exit_error_on_file(EXIT, game);
         }
-        free(line);
+        free (line);
     }
-    printf("\n"); //depois tirar
-    close(fd);
     if (!check_count(game))
-        return FALSE;
+        return FALSE;    
+    view_player_on_map (game);
+    close(fd);
     return TRUE;
 }
 
-int validation_true (t_game *game)
+int validation (t_game *game)
 {
     if (get_a_line (game))
+    {
         return TRUE;
+    }
     return FALSE;
 }

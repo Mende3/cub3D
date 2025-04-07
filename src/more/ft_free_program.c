@@ -1,9 +1,16 @@
 #include "../../includes/cub3D.h"
 
-
-void free_map(char **map)
+void free_matrix (char **temp_matrix)
 {
-    free(map);
+    int i;
+
+    i = 0;
+    while (temp_matrix[i])
+    {
+        free (temp_matrix[i]);
+        i++;
+    }
+    free (temp_matrix);
 }
 
 void free_subject (char *subject)
@@ -41,7 +48,7 @@ void ft_free_program(t_game *game)
     if (game)
     {
         if (game->map)
-            free_map(game->map);
+            free_matrix(game->map);
         free_cors (game);
         free_colors (game);
         if (game->mlx)

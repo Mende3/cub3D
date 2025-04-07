@@ -28,6 +28,8 @@ void init_win(t_game *game)
     mlx_put_image_to_window(game->mlx, game->win, game->assets.asset_so_img, 128, 64);
     mlx_put_image_to_window(game->mlx, game->win, game->assets.asset_we_img, 192, 64);
     mlx_put_image_to_window(game->mlx, game->win, game->assets.asset_no_img, 256, 64);
+    
+    printf ("game->heigth: %d\n", game->map_heigth);
     mlx_key_hook(game->win, key_listiner, game);
     mlx_hook(game->win, 17, 0, ft_close_x, game);
     mlx_loop(game->mlx);

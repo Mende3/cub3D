@@ -37,7 +37,7 @@ int view_map(char *this_line, t_game *game, int *start_read)
         is_map_line(this_line))
     {
         *start_read = TRUE;
-        read_file(this_line, game);
+        ft_read_file (this_line, game);
         return TRUE;
     }
     else if (*start_read)
@@ -45,6 +45,5 @@ int view_map(char *this_line, t_game *game, int *start_read)
         ft_putstr_fd(NO_CHAR_MAP, 1);
         return FALSE;
     }
-    
-    return TRUE; 
+    return TRUE;
 }

@@ -9,6 +9,9 @@ void init_struct_vars (char *arg, t_game *game)
     game->assets.asset_height = 64;
     game->map_heigth = HIGHT_WIN;
     game->map_width = WIDTH_WIN;
+	game->map_heigth = 0;
+    game->map_width = 0;
+    game->map = NULL;
 }
 
 int main(int ac, char **av)
@@ -28,7 +31,8 @@ int main(int ac, char **av)
             init_struct_vars (av[1], game);
             if (ft_open_file(game))
             {
-                if (validation_true(game))
+                printf ("game->heigth: %d\n", game->map_heigth);
+                if (validation(game))
                     init_win (game);
                 else
                     ft_exit_error_on_file (EXIT, game);
@@ -41,6 +45,5 @@ int main(int ac, char **av)
     }
     else
         ft_putstr_fd(NO_ARG, 2);
-
     return (0);
 }
