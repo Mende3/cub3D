@@ -50,6 +50,7 @@
 # define EMPTY_FST_LINE CYAN "Error\nA primeira linha do mapa está vaiza.\n" RESET
 # define MORE_NATIVE_CHAR CYAN "Error\nDemasiados identificadores nativos.\n" RESET
 # define IS_OTHER_CHAR CYAN "Error\nCaracteres estranhos identificados.\n" RESET
+# define NO_ARROUND_WALLS CYAN "Error\nO mapa precisa estar cercado por parede.\n" RESET
 
 //chekc_utils.c
 
@@ -104,7 +105,7 @@ void find_player(t_game *game);
 void view_player_on_map (t_game *game);
 int is_char_valid (char *this_line, int i);
 //validation_map_utils2
-int	is_map_surrounded_by_walls(t_game *game);
+void	is_map_surrounded_by_walls(t_game *game);
 
 //check_utils_one
 int ft_isspace(int c);

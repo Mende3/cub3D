@@ -19,6 +19,5 @@ int ft_read_file (char *line, t_game *game)
     if (game->map)
         free (game->map);
     game->map = temp;
-    game->map_width = ft_strlen (line);
     return (TRUE);
 }
