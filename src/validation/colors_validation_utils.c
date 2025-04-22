@@ -1,19 +1,17 @@
 #include "../../includes/cub3D.h"
 
-int	is_rgb_nbr(int nbr)
+int is_rgb_nbr (int nbr)
 {
     return (nbr >= 0 && nbr <= 255);
 }
 
-int	is_color_rgb(char *str)
+int is_color_rgb(char *str)
 {
-    int		i;
-    int		result;
-    int		temp;
-    char	**rgb_colors;
-
-    i = 0;
+    int i = 0;
+    int temp;
+    char **rgb_colors;
     int result = TRUE;
+    
     rgb_colors = ft_split(str, 44);
     while (rgb_colors[i] != NULL)
         i++;

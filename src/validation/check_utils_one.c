@@ -56,5 +56,6 @@ int extension_checker (const char *arg, const char *ext)
 
 int ft_isspace(int c)
 {
-    return (c == ' ' || c == '\n');
+    return (c == ' '  || c == '\t' || c == '\n' ||
+            c == '\v' || c == '\f' || c == '\r');
 }

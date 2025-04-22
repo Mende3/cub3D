@@ -37,7 +37,7 @@ void map_extend (char **temp_map, t_game *game)
     }
 }
 
-void fill_map (int count, t_game *game)
+void fill_matrix (int count, t_game *game)
 {
     char **temp_map;
     char *line;
@@ -80,7 +80,7 @@ int ft_open_file (t_game *game)
         }
         free (line);
     }
-    fill_map (count, game);
+    fill_matrix (count, game);
     close (fd);
     return TRUE;
 }

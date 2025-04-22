@@ -45,8 +45,8 @@ int get_a_line(t_game *game)
         }
         free (line);
     }
-    print_map (game);
     is_map_surrounded_by_walls (game);
+    can_play (game);
     if (!check_count(game))
         return FALSE;    
     view_player_on_map (game);

@@ -23,14 +23,17 @@ void find_player(t_game *game)
             {
                 game->player_x = x;
                 game->player_y = y;
+                init_player_dir_and_plane(game, game->map[y][x]);
+                game->pos_x = x + 0.5;
+                game->pos_y = y + 0.5;
                 return;
             }
             x++;
         }
         y++;
     }
-    ft_putstr_fd (PLAYER_NOT_FOUND, 2);
-    ft_exit_error_on_file (EXIT, game);
+    ft_putstr_fd(PLAYER_NOT_FOUND, 2);
+    ft_exit_error_on_file(EXIT, game);
 }
 
 void count_identifier_player (t_game *game)

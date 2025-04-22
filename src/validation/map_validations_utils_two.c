@@ -1,5 +1,7 @@
 #include "../../includes/cub3D.h"
 
+#include "../../includes/cub3D.h"
+
 int check_internal_lines (t_game *game)
 {
 	int y;
@@ -61,4 +63,3 @@ void	is_map_surrounded_by_walls(t_game *game)
 		ft_exit_program (EXIT, INVALID_MAP, game);
 	}
 }
-

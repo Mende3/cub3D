@@ -23,7 +23,7 @@ void ft_exit_program (char *str, char *str2, t_game *game)
         else
             ft_free_program (game);
     }
-    ft_putstr_fd (str, 1);
+    ft_putstr_fd (str, 2);
     exit (1);
 }
 

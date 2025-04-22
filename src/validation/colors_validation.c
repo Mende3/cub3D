@@ -1,11 +1,11 @@
 #include "../../includes/cub3D.h"
 
-void	get_color(char *this_line, char *ptr, t_game *game, char *key)
+void get_color (char *this_line, char *ptr, t_game *game, char *key)
 {
-    char	*color;
-    int		i;
-    int		j;
-    int		len;
+    char *color;
+    int i;
+    int j;
+    int len;
 
     i = 0;
     while (ptr[i] == ' ' || ptr[i] == '\t')

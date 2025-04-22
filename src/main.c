@@ -1,18 +1,23 @@
 #include "../includes/cub3D.h"
 
-
-void init_struct_vars (char *arg, t_game *game)
+// Exemplo no código de leitura do mapa
+void init_struct_vars(char *arg, t_game *game)
 {
-    ft_bzero (game, sizeof(t_game));
+    ft_bzero(game, sizeof(t_game));
     game->file_name = arg;
     game->assets.asset_width = 64;
     game->assets.asset_height = 64;
     game->map_heigth = HIGHT_WIN;
     game->map_width = WIDTH_WIN;
-	game->map_heigth = 0;
+    game->map_heigth = 0;
     game->map_width = 0;
     game->map = NULL;
+
+    // Adicionando inicialização da direção do jogador
+    char player_orientation = 'N'; // Exemplo, o valor pode vir do mapa
+    init_player_dir_and_plane(game, player_orientation);
 }
+
 
 int main(int ac, char **av)
 {
