@@ -104,7 +104,7 @@ C 225,30,0
 
 ## 📚 Créditos
 
-Projeto desenvolvido por **[Seu Nome]** como parte do programa **42 School**.
+Projeto desenvolvido por **mefranci e gkiala** como parte do programa **42 School**.
 
 ---
 
