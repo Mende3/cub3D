@@ -1,7 +1,3 @@
-Claro — vou criar um README bem organizado para o projeto **Cub3D**, que é um clássico exercício de raycasting inspirado no Wolfenstein 3D, geralmente feito em C para escolas como 42. Se quiser, depois posso personalizar mais com base no seu código e estrutura, mas aqui vai um modelo completo:
-
----
-
 # 🕹️ Cub3D
 
 Bem-vindo ao **Cub3D** — um projeto de raycasting inspirado no clássico **Wolfenstein 3D**. Este projeto foi desenvolvido como parte do currículo da 42 School, com o objetivo de criar um motor gráfico 3D simples a partir de uma visão em primeira pessoa, utilizando apenas a biblioteca **MiniLibX**.
