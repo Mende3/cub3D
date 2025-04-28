@@ -36,7 +36,6 @@ int main(int ac, char **av)
             init_struct_vars (av[1], game);
             if (ft_open_file(game))
             {
-                printf ("game->heigth: %d\n", game->map_heigth);
                 if (validation(game))
                     init_win (game);
                 else
